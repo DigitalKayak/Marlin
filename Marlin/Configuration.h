@@ -21,7 +21,7 @@
  */
 #pragma once
 
-//#define B1_WITH_BLTOUCH
+#define B1_WITH_BLTOUCH
 
 /**
  * Configuration.h
@@ -71,7 +71,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(thisiskeithb, BIQU B1)" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "(digitalkayak, BIQU B1)" // Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -145,7 +145,7 @@
 //#define BLUETOOTH
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "BIQU B1"
+#define CUSTOM_MACHINE_NAME "PrintMaster"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -722,7 +722,7 @@
  * *** IT IS HIGHLY RECOMMENDED TO LEAVE THIS OPTION ENABLED! ***
  */
 #define PREVENT_COLD_EXTRUSION
-#define EXTRUDE_MINTEMP 170
+#define EXTRUDE_MINTEMP 180
 
 /**
  * Prevent a single extrusion longer than EXTRUDE_MAXLENGTH.
@@ -1269,7 +1269,7 @@
  * A total of 3 or more adds more slow probes, taking the average.
  */
 #ifdef B1_WITH_BLTOUCH
-  #define MULTIPLE_PROBING 2
+  #define MULTIPLE_PROBING 3
 #endif
 //#define EXTRA_PROBING    1
 
@@ -1299,7 +1299,7 @@
 #define Z_PROBE_OFFSET_RANGE_MAX 20
 
 // Enable the M48 repeatability test to test probe accuracy
-//#define Z_MIN_PROBE_REPEATABILITY_TEST
+#define Z_MIN_PROBE_REPEATABILITY_TEST
 
 // Before deploy/stow pause for user confirmation
 //#define PAUSE_BEFORE_DEPLOY_STOW
@@ -1476,7 +1476,7 @@
  * RAMPS-based boards use SERVO3_PIN for the first runout sensor.
  * For other boards you may need to define FIL_RUNOUT_PIN, FIL_RUNOUT2_PIN, etc.
  */
-//#define FILAMENT_RUNOUT_SENSOR
+#define FILAMENT_RUNOUT_SENSOR
 #if ENABLED(FILAMENT_RUNOUT_SENSOR)
   #define FIL_RUNOUT_ENABLED_DEFAULT true // Enable the sensor on startup. Override with M412 followed by M500.
   #define NUM_RUNOUT_SENSORS   1          // Number of sensors, up to one per extruder. Define a FIL_RUNOUT#_PIN for each.
@@ -1782,7 +1782,7 @@
  * - Allows Z homing only when XY positions are known and trusted.
  * - If stepper drivers sleep, XY homing may be required again before Z homing.
  */
-//#define Z_SAFE_HOMING
+#define Z_SAFE_HOMING
 
 #if ENABLED(Z_SAFE_HOMING)
   #define Z_SAFE_HOMING_X_POINT X_CENTER  // X point for Z homing
@@ -1873,7 +1873,7 @@
 #define EEPROM_BOOT_SILENT    // Keep M503 quiet and only give errors during first load
 #if ENABLED(EEPROM_SETTINGS)
   #define EEPROM_AUTO_INIT    // Init EEPROM automatically on any errors.
-  //#define EEPROM_INIT_NOW   // Init EEPROM on first boot after a new build.
+  #define EEPROM_INIT_NOW   // Init EEPROM on first boot after a new build.
 #endif
 
 //
@@ -1902,13 +1902,13 @@
 // Preheat Constants - Up to 5 are supported without changes
 //
 #define PREHEAT_1_LABEL       "PLA"
-#define PREHEAT_1_TEMP_HOTEND 190
+#define PREHEAT_1_TEMP_HOTEND 200
 #define PREHEAT_1_TEMP_BED     65
 #define PREHEAT_1_TEMP_CHAMBER 35
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
 #define PREHEAT_2_LABEL       "PETG"
-#define PREHEAT_2_TEMP_HOTEND 235
+#define PREHEAT_2_TEMP_HOTEND 240
 #define PREHEAT_2_TEMP_BED     80
 #define PREHEAT_2_TEMP_CHAMBER 35
 #define PREHEAT_2_FAN_SPEED     0 // Value from 0 to 255
@@ -2055,7 +2055,7 @@
  *
  * View the current statistics with M78.
  */
-//#define PRINTCOUNTER
+#define PRINTCOUNTER
 #if ENABLED(PRINTCOUNTER)
   #define PRINTCOUNTER_SAVE_INTERVAL 60 // (minutes) EEPROM save interval during print
 #endif
@@ -2782,7 +2782,7 @@
 //
 // 480x320, 3.5", SPI Stock Display with Rotary Encoder from BIQU B1 SE Series
 //
-//#define BTT_TFT35_SPI_V1_0
+#define BTT_TFT35_SPI_V1_0
 
 //
 // Generic TFT with detailed options
@@ -2814,7 +2814,7 @@
  *   root of your SD card, together with the compiled firmware.
  */
 //#define TFT_CLASSIC_UI
-//#define TFT_COLOR_UI
+#define TFT_COLOR_UI
 //#define TFT_LVGL_UI
 
 #if ENABLED(TFT_LVGL_UI)
@@ -2847,7 +2847,7 @@
 //
 // Touch Screen Settings
 //
-//#define TOUCH_SCREEN
+#define TOUCH_SCREEN
 #if ENABLED(TOUCH_SCREEN)
   #define BUTTON_DELAY_EDIT  50 // (ms) Button repeat delay for edit screens
   #define BUTTON_DELAY_MENU 250 // (ms) Button repeat delay for menus
