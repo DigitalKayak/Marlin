@@ -1293,20 +1293,20 @@
       //#define PROBE_OFFSET_WIZARD_XY_POS { X_CENTER, Y_CENTER }
     #endif
 
-  #if HAS_BED_PROBE
-    // Add calibration in the Probe Offsets menu to compensate for X-axis twist.
-    //#define X_AXIS_TWIST_COMPENSATION
-    #if ENABLED(X_AXIS_TWIST_COMPENSATION)
-      /**
-       * Enable to init the Probe Z-Offset when starting the Wizard.
-       * Use a height slightly above the estimated nozzle-to-probe Z offset.
-       * For example, with an offset of -5, consider a starting height of -4.
-       */
-      #define XATC_START_Z 0.0
-      #define XATC_MAX_POINTS 3             // Number of points to probe in the wizard
-      #define XATC_Y_POSITION Y_CENTER      // (mm) Y position to probe
-      #define XATC_Z_OFFSETS { 0, 0, 0 }    // Z offsets for X axis sample points
-    #endif
+  #if ENABLED(AUTO_BED_LEVELING_BILINEAR)
+      // Add a calibration procedure in the Probe Offsets menu
+      // to compensate for twist in the X-axis.
+      //#define X_AXIS_TWIST_COMPENSATION
+      #if ENABLED(X_AXIS_TWIST_COMPENSATION)
+        /**
+         * Enable to init the Probe Z-Offset when starting the Wizard.
+         * Use a height slightly above the estimated nozzle-to-probe Z offset.
+         * For example, with an offset of -5, consider a starting height of -4.
+         */
+        #define XATC_START_Z 0.0
+        #define XATC_MAX_POINTS 3             // Number of points to probe in the wizard
+        #define XATC_Y_POSITION Y_CENTER      // (mm) Y position to probe
+      #endif
   #endif
 #endif
 
@@ -1319,31 +1319,31 @@
   // BACK menu items keep the highlight at the top
   //#define TURBO_BACK_MENU_ITEM
 
-  /**
-   * LED Control Menu
-   * Add LED Control to the LCD menu
-   */
-  //#define LED_CONTROL_MENU
-  #if ENABLED(LED_CONTROL_MENU)
-    #define LED_COLOR_PRESETS                 // Enable the Preset Color menu option
-    //#define NEO2_COLOR_PRESETS              // Enable a second NeoPixel Preset Color menu option
-    #if ENABLED(LED_COLOR_PRESETS)
-      #define LED_USER_PRESET_RED        255  // User defined RED value
-      #define LED_USER_PRESET_GREEN      128  // User defined GREEN value
-      #define LED_USER_PRESET_BLUE         0  // User defined BLUE value
-      #define LED_USER_PRESET_WHITE      255  // User defined WHITE value
-      #define LED_USER_PRESET_BRIGHTNESS 255  // User defined intensity
-      //#define LED_USER_PRESET_STARTUP       // Have the printer display the user preset color on startup
-    #endif
-    #if ENABLED(NEO2_COLOR_PRESETS)
-      #define NEO2_USER_PRESET_RED        255  // User defined RED value
-      #define NEO2_USER_PRESET_GREEN      128  // User defined GREEN value
-      #define NEO2_USER_PRESET_BLUE         0  // User defined BLUE value
-      #define NEO2_USER_PRESET_WHITE      255  // User defined WHITE value
-      #define NEO2_USER_PRESET_BRIGHTNESS 255  // User defined intensity
-      //#define NEO2_USER_PRESET_STARTUP       // Have the printer display the user preset color on startup for the second strip
-    #endif
-  #endif
+  // /**
+  //  * LED Control Menu
+  //  * Add LED Control to the LCD menu
+  //  */
+  // //#define LED_CONTROL_MENU
+  // #if ENABLED(LED_CONTROL_MENU)
+  //   #define LED_COLOR_PRESETS                 // Enable the Preset Color menu option
+  //   //#define NEO2_COLOR_PRESETS              // Enable a second NeoPixel Preset Color menu option
+  //   #if ENABLED(LED_COLOR_PRESETS)
+  //     #define LED_USER_PRESET_RED        255  // User defined RED value
+  //     #define LED_USER_PRESET_GREEN      128  // User defined GREEN value
+  //     #define LED_USER_PRESET_BLUE         0  // User defined BLUE value
+  //     #define LED_USER_PRESET_WHITE      255  // User defined WHITE value
+  //     #define LED_USER_PRESET_BRIGHTNESS 255  // User defined intensity
+  //     //#define LED_USER_PRESET_STARTUP       // Have the printer display the user preset color on startup
+  //   #endif
+  //   #if ENABLED(NEO2_COLOR_PRESETS)
+  //     #define NEO2_USER_PRESET_RED        255  // User defined RED value
+  //     #define NEO2_USER_PRESET_GREEN      128  // User defined GREEN value
+  //     #define NEO2_USER_PRESET_BLUE         0  // User defined BLUE value
+  //     #define NEO2_USER_PRESET_WHITE      255  // User defined WHITE value
+  //     #define NEO2_USER_PRESET_BRIGHTNESS 255  // User defined intensity
+  //     //#define NEO2_USER_PRESET_STARTUP       // Have the printer display the user preset color on startup for the second strip
+  //   #endif
+  // #endif
 
   // Insert a menu for preheating at the top level to allow for quick access
   //#define PREHEAT_SHORTCUT_MENU_ITEM
@@ -1653,7 +1653,7 @@
    *
    * :[ 'LCD', 'ONBOARD', 'CUSTOM_CABLE' ]
    */
-  #define SDCARD_CONNECTION ONBOARD
+  //#define SDCARD_CONNECTION ONBOARD
 
   // Enable if SD detect is rendered useless (e.g., by using an SD extender)
   //#define NO_SD_DETECT
