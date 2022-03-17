@@ -285,6 +285,8 @@
 #if ENABLED(THERMAL_PROTECTION_HOTENDS)
   #define THERMAL_PROTECTION_PERIOD 25        // Seconds
   #define THERMAL_PROTECTION_HYSTERESIS 3     // Degrees Celsius
+  #define THERMAL_PROTECTION_PERIOD 40        // Seconds
+  #define THERMAL_PROTECTION_HYSTERESIS 4     // Degrees Celsius
 
   //#define ADAPTIVE_FAN_SLOWING              // Slow part cooling fan if temperature drops
   #if BOTH(ADAPTIVE_FAN_SLOWING, PIDTEMP)
@@ -989,7 +991,7 @@
 #if ENABLED(ASSISTED_TRAMMING)
 
   // Define positions for probe points.
-  #define TRAMMING_POINT_XY { {  50, 50 }, { 310,  50 }, { 310, 310 }, { 50, 310 } }
+  #define TRAMMING_POINT_XY { {  20, 20 }, { 180,  20 }, { 180, 180 }, { 20, 180 } }
 
   // Define position names for probe points.
   #define TRAMMING_POINT_NAME_1 "Front-Left"
@@ -1319,31 +1321,31 @@
   // BACK menu items keep the highlight at the top
   //#define TURBO_BACK_MENU_ITEM
 
-  // /**
-  //  * LED Control Menu
-  //  * Add LED Control to the LCD menu
-  //  */
-  // //#define LED_CONTROL_MENU
-  // #if ENABLED(LED_CONTROL_MENU)
-  //   #define LED_COLOR_PRESETS                 // Enable the Preset Color menu option
-  //   //#define NEO2_COLOR_PRESETS              // Enable a second NeoPixel Preset Color menu option
-  //   #if ENABLED(LED_COLOR_PRESETS)
-  //     #define LED_USER_PRESET_RED        255  // User defined RED value
-  //     #define LED_USER_PRESET_GREEN      128  // User defined GREEN value
-  //     #define LED_USER_PRESET_BLUE         0  // User defined BLUE value
-  //     #define LED_USER_PRESET_WHITE      255  // User defined WHITE value
-  //     #define LED_USER_PRESET_BRIGHTNESS 255  // User defined intensity
-  //     //#define LED_USER_PRESET_STARTUP       // Have the printer display the user preset color on startup
-  //   #endif
-  //   #if ENABLED(NEO2_COLOR_PRESETS)
-  //     #define NEO2_USER_PRESET_RED        255  // User defined RED value
-  //     #define NEO2_USER_PRESET_GREEN      128  // User defined GREEN value
-  //     #define NEO2_USER_PRESET_BLUE         0  // User defined BLUE value
-  //     #define NEO2_USER_PRESET_WHITE      255  // User defined WHITE value
-  //     #define NEO2_USER_PRESET_BRIGHTNESS 255  // User defined intensity
-  //     //#define NEO2_USER_PRESET_STARTUP       // Have the printer display the user preset color on startup for the second strip
-  //   #endif
-  // #endif
+  /**
+   * LED Control Menu
+   * Add LED Control to the LCD menu
+   */
+  //#define LED_CONTROL_MENU
+  #if ENABLED(LED_CONTROL_MENU)
+    #define LED_COLOR_PRESETS                 // Enable the Preset Color menu option
+    //#define NEO2_COLOR_PRESETS              // Enable a second NeoPixel Preset Color menu option
+    #if ENABLED(LED_COLOR_PRESETS)
+      #define LED_USER_PRESET_RED        255  // User defined RED value
+      #define LED_USER_PRESET_GREEN      128  // User defined GREEN value
+      #define LED_USER_PRESET_BLUE         0  // User defined BLUE value
+      #define LED_USER_PRESET_WHITE      255  // User defined WHITE value
+      #define LED_USER_PRESET_BRIGHTNESS 255  // User defined intensity
+      //#define LED_USER_PRESET_STARTUP       // Have the printer display the user preset color on startup
+    #endif
+    #if ENABLED(NEO2_COLOR_PRESETS)
+      #define NEO2_USER_PRESET_RED        255  // User defined RED value
+      #define NEO2_USER_PRESET_GREEN      128  // User defined GREEN value
+      #define NEO2_USER_PRESET_BLUE         0  // User defined BLUE value
+      #define NEO2_USER_PRESET_WHITE      255  // User defined WHITE value
+      #define NEO2_USER_PRESET_BRIGHTNESS 255  // User defined intensity
+      //#define NEO2_USER_PRESET_STARTUP       // Have the printer display the user preset color on startup for the second strip
+    #endif
+  #endif
 
   // Insert a menu for preheating at the top level to allow for quick access
   //#define PREHEAT_SHORTCUT_MENU_ITEM
@@ -1376,33 +1378,6 @@
 
   // Show the E position (filament used) during printing
   //#define LCD_SHOW_E_TOTAL
-
-  /**
-   * LED Control Menu
-   * Add LED Control to the LCD menu
-   */
-  #define LED_CONTROL_MENU
-  #if ENABLED(LED_CONTROL_MENU)
-    #define LED_COLOR_PRESETS                 // Enable the Preset Color menu option
-    //#define NEO2_COLOR_PRESETS              // Enable a second NeoPixel Preset Color menu option
-    #if ENABLED(LED_COLOR_PRESETS)
-      #define LED_USER_PRESET_RED        255  // User defined RED value
-      #define LED_USER_PRESET_GREEN      128  // User defined GREEN value
-      #define LED_USER_PRESET_BLUE         0  // User defined BLUE value
-      #define LED_USER_PRESET_WHITE      255  // User defined WHITE value
-      #define LED_USER_PRESET_BRIGHTNESS 255  // User defined intensity
-      //#define LED_USER_PRESET_STARTUP       // Have the printer display the user preset color on startup
-    #endif
-    #if ENABLED(NEO2_COLOR_PRESETS)
-      #define NEO2_USER_PRESET_RED        255  // User defined RED value
-      #define NEO2_USER_PRESET_GREEN      128  // User defined GREEN value
-      #define NEO2_USER_PRESET_BLUE         0  // User defined BLUE value
-      #define NEO2_USER_PRESET_WHITE      255  // User defined WHITE value
-      #define NEO2_USER_PRESET_BRIGHTNESS 255  // User defined intensity
-      //#define NEO2_USER_PRESET_STARTUP       // Have the printer display the user preset color on startup for the second strip
-    #endif
-  #endif
-
 #endif
 
 // LCD Print Progress options
@@ -1986,7 +1961,7 @@
                                             // Note: Extra time may be added to mitigate controller latency.
     //#define MOVE_Z_WHEN_IDLE                // Jump to the move Z menu on doubleclick when printer is idle.
     #if ENABLED(MOVE_Z_WHEN_IDLE)
-      #define MOVE_Z_IDLE_MULTIPLICATOR 2   // Multiply 1mm by this factor for the move step size.
+      #define MOVE_Z_IDLE_MULTIPLICATOR 1   // Multiply 1mm by this factor for the move step size.
     #endif
   #endif
 
