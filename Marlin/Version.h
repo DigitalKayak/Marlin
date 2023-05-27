@@ -28,7 +28,7 @@
 /**
  * Marlin release version identifier
  */
-#define SHORT_BUILD_VERSION "Digital Kayak 2.9.3-S1"
+#define SHORT_BUILD_VERSION "Digital Kayak 2.9.3-GL"
 
 /**
  * Verbose version identifier which should contain a reference to the location

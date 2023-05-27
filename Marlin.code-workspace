@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../Configurations"
+		},
+		{
+			"path": "../BIGTREETECH-TouchScreenFirmware"
+		}
+	],
+	"settings": {}
+}

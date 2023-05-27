@@ -610,15 +610,15 @@
   #if ENABLED(PID_PARAMS_PER_HOTEND)
     // Specify up to one value per hotend here, according to your setup.
     // If there are fewer values, the last one applies to the remaining hotends.
-    #define DEFAULT_Kp_LIST {  22.20,  22.20 }
-    #define DEFAULT_Ki_LIST {   1.08,   1.08 }
-    #define DEFAULT_Kd_LIST {  114.00,  114.00 }
+    #define DEFAULT_Kp_LIST {  23.2403,  23.2403 }
+    #define DEFAULT_Ki_LIST {   1.9761 ,   1.9761  }
+    #define DEFAULT_Kd_LIST {  68.3295,  68.3295 }
   #else
     // M301 P14.7200 I0.8900 D61.2200 -- old default
     // M301 P31.6908 I2.7702 D90.6358
-    #define DEFAULT_Kp 31.6908
-    #define DEFAULT_Ki 2.7702
-    #define DEFAULT_Kd 90.6358
+    #define DEFAULT_Kp 23.2403
+    #define DEFAULT_Ki 1.9761 
+    #define DEFAULT_Kd 68.3295
   #endif
 #endif // PIDTEMP
 
@@ -1199,7 +1199,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -45, -7, -2.43 }
+#define NOZZLE_TO_PROBE_OFFSET { -45, -7, -2.39 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1515,13 +1515,13 @@
   // After a runout is detected, continue printing this length of filament
   // before executing the runout script. Useful for a sensor at the end of
   // a feed tube. Requires 4 bytes SRAM per sensor, plus 4 bytes overhead.
-  //#define FILAMENT_RUNOUT_DISTANCE_MM 25
+  #define FILAMENT_RUNOUT_DISTANCE_MM 25
 
   #ifdef FILAMENT_RUNOUT_DISTANCE_MM
     // Enable this option to use an encoder disc that toggles the runout pin
     // as the filament moves. (Be sure to set FILAMENT_RUNOUT_DISTANCE_MM
     // large enough to avoid false positives.)
-    //#define FILAMENT_MOTION_SENSOR
+    #define FILAMENT_MOTION_SENSOR
   #endif
 #endif
 
